@@ -48,6 +48,6 @@ console.log(Object.entries(myObj));
 
 
 // to check if it has a property
-console.log(myObj.hasOwnProperty('name'));
-console.log(myObj.hasOwnProperty('names'));
+console.log(myObj.hasOwnProperty('name')); // true
+console.log(myObj.hasOwnProperty('names')); // false
 
