@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ul id="languages">
+      <li id="item1">JS</li>
+      <li id="item2">CPP</li>
+    </ul>
+
+    <script>
+      // we have covered createElement, createTextNode, appendChild in createNewElement.html
+
+      document.body.style.backgroundColor = "black";
+      document.body.style.color = "white";
+
+      let unorderedList = document.getElementById("languages");
+
+      //   function addNewElement(langName) {
+      //     let newListItem = document.createElement("li");
+      //     newListItem.innerHTML = langName;
+      //     newListItem.id = Math.random().toString(36).slice(2);
+      //     unorderedList.appendChild(newListItem);
+      //   }
+
+      function addNewElement(langName) {
+        let newListItem = document.createElement("li");
+        newListItem.appendChild(document.createTextNode(langName));
+        newListItem.id = Math.random().toString(36).slice(2);
+        unorderedList.appendChild(newListItem);
+      }
+
+      addNewElement("Java");
+      addNewElement("Ruby");
+
+      // now we learn how to edit and remove elements
+
+      // edit
+
+      // in this we have replaced the whole element with a new element
+
+      let newLang = document.createElement("li");
+      newLang.id = Math.random().toString(36).slice(2);
+      newLang.textContent = "Python";
+      let lang = document.querySelector("li:nth-child(2)"); // selecting CPP); // 2nd child
+      lang.replaceWith(newLang); // replacing CPP with Python
+
+      // in this we change only the inner HTML of the element
+
+      document.querySelector("li:nth-child(1)").innerHTML = "JavaScript"; // changing JS to JavaScript
+
+      // remove
+
+      let langToBeRemoved = document.querySelector("li:nth-child(3)"); // selecting Java
+      langToBeRemoved.remove(); // removing Java
+    </script>
+  </body>
+</html>

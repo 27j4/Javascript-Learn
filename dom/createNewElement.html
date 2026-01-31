@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM | Anshul</title>
+  </head>
+  <body style="background-color: black; color: white">
+    <!--     
+    <div class="parent">
+      <day class="id">Monday</day>
+      <day class="id">Tuesday</day>
+      <day class="id">Wednesday</day>
+      <day class="id">Thursday</day>
+    </div>
+
+    <script>
+      const parent = document.querySelector(".parent");
+      console.log(parent);
+      console.log(parent.children);
+      console.log(parent.children[1].innerText);
+
+      // firstElementChild
+      console.log(parent.firstElementChild);
+
+      // lastElementChild
+      console.log(parent.lastElementChild);
+
+      const dayOne = document.querySelector(".id");
+      console.log(dayOne);
+      console.log(dayOne.parentElement);
+      console.log(dayOne.nextElementSibling);
+      // chidrenNodes
+      console.log(parent.childNodes);
+    </script> -->
+
+    <script>
+      const newElement = document.createElement("div");
+      newElement.className = "child"; // adding class
+      newElement.id = "createId"; // adding id
+      newElement.setAttribute("title", "myTitle"); // adding attribute
+      newElement.style.color = "green"; // adding style
+      newElement.style.padding = "10px"; // adding style
+
+      const textNode = document.createTextNode("hi, I am Anshul Pandey"); // creating text node
+      newElement.appendChild(textNode); // appending text node to newElement
+
+      document.body.appendChild(newElement); // appending newElement to body
+    </script>
+  </body>
+</html>
