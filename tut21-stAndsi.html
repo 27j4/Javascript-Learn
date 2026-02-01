@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Anshul Pandey</h1>
+    <button id="start" type="button">Start</button>
+    <button id="stop" type="button">Stop</button>
+  </body>
+
+  <script>
+    const bt1 = document.querySelector("#start");
+    const bt2 = document.querySelector("#stop");
+
+    let intervalId;
+
+    bt1.addEventListener("click", function(){
+        intervalId = setInterval(() => {
+            console.log("Hello Anshul Pandey");
+        }, 1000);
+    });
+
+    bt2.addEventListener("click", function(){
+        clearInterval(intervalId);
+    });
+
+  </script>
+</html>

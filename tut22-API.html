@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GitHub User</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+      .card {
+        width: 300px;
+        border: 1px solid #ccc;
+        padding: 16px;
+        border-radius: 8px;
+      }
+      img {
+        width: 100px;
+        border-radius: 50%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="card"></div>
+
+    <script>
+      const xhr = new XMLHttpRequest();
+      const username = "27j4";
+
+      xhr.open("GET", `https://api.github.com/users/${username}`, true);
+
+      xhr.onload = function () {
+        if (xhr.status === 200) {
+          const data = JSON.parse(xhr.responseText);
+
+          const card = document.getElementById("card");
+          card.innerHTML = `
+            <div class="card">
+              <img src="${data.avatar_url}" alt="avatar">
+              <h3>${data.name || data.login}</h3>
+              <p>Followers: ${data.followers}</p>
+              <p>Public Repos: ${data.public_repos}</p>
+              <a href="${data.html_url}" target="_blank">View Profile</a>
+            </div>
+          `;
+        } else {
+          console.error("Error:", xhr.status);
+        }
+      };
+
+      xhr.onerror = function () {
+        console.error("Request failed");
+      };
+
+      xhr.send();
+    </script>
+  </body>
+</html>

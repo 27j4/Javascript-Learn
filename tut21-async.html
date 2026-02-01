@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 id="displayName">Anshul Pandey</h1>
+    <button id="myButton" type="button">Click Me</button>
+  </body>
+
+  <script>
+    const button = document.getElementById("myButton");
+    const displayName = document.getElementById("displayName");
+
+    const event = setTimeout(() => {
+      displayName.textContent = "Anshul Pandey - Updated";
+      console.log("name updated");
+    }, 2000);
+
+    button.addEventListener("click", () => {
+      clearTimeout(event);
+      console.log("eventStopped");
+    });
+  </script>
+</html>
